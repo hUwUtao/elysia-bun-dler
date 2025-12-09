@@ -7,8 +7,6 @@
 import Elysia from "elysia";
 import indexHtml from "./spa/index.html";
 
-console.log(indexHtml);
-
 const built = !!indexHtml.files;
 const bvfs = indexHtml.index.slice(0, indexHtml.index.lastIndexOf("/"));
 
