@@ -1,0 +1,74 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/core", "ultracite/react"],
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.vercel",
+      "!dist",
+      "!**/components.d.ts",
+      "!**/auto-imports.d.ts",
+      "!**/volt",
+      "!**/*.vue"
+    ]
+  },
+  "linter": {
+    "rules": {
+      //  性能规则
+      "performance": {
+        "noBarrelFile": "off",
+        "noNamespaceImport": "off",
+        //  正则表达式规则
+        "useTopLevelRegex": "off"
+      },
+      "a11y": "off",
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off",
+        "noStaticOnlyClass": "off",
+        "noForEach": "off",
+        "noBannedTypes": "off"
+      },
+      //   可疑规则
+      "suspicious": {
+        "noConsole": "off",
+        "noExplicitAny": "off",
+        "noEvolvingTypes": "off",
+        "noImplicitAnyLet": "off",
+        "useIterableCallbackReturn": "off",
+        "noConfusingVoidType": "off",
+        "noAlert": "off"
+      },
+      //  新特性规则
+      "nursery": {
+        "useMaxParams": "off",
+        "noEmptySource": "off",
+        "noShadow": "off",
+        "noIncrementDecrement": "off",
+        "noSyncScripts": "off"
+      },
+      "style": {
+        "noMagicNumbers": "off",
+        "useFilenamingConvention": "off",
+        "noNonNullAssertion": "off",
+        "useBlockStatements": "off",
+        "noNestedTernary": "off",
+        "useConsistentTypeDefinitions": "off"
+      },
+      // 正确性规则
+      "correctness": {
+        "noUnusedVariables": "off",
+        "noUndeclaredVariables": "off",
+        "noUnknownPseudoClass": "off",
+        "noUnusedFunctionParameters": "off",
+        "noUnusedPrivateClassMembers": "off"
+      }
+    }
+  },
+  "json": {
+    "parser": {
+      "allowComments": true
+    }
+  }
+}

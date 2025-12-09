@@ -7,7 +7,7 @@
 import Elysia from "elysia";
 import indexHtml from "./spa/index.html";
 
-console.log(indexHtml);
+console.log("indexHtml:", indexHtml);
 
 const built = !!indexHtml.files;
 const bvfs = indexHtml.index.slice(0, indexHtml.index.lastIndexOf("/"));
@@ -32,9 +32,9 @@ const frontend = built
               headers: {
                 ...file.headers,
               },
-            }),
+            })
         ),
-      new Elysia(),
+      new Elysia()
     )
   : await (async () => {
       const build = await Bun.build({
@@ -52,9 +52,9 @@ const frontend = built
                 headers: {
                   "Content-Type": file.type,
                 },
-              }),
+              })
           ),
-        new Elysia(),
+        new Elysia()
       );
     })();
 

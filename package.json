@@ -7,12 +7,15 @@
     "build": "bun build src/index.ts --compile --minify --outfile=dist/server.exe --bytecode"
   },
   "dependencies": {
+    "@elysiajs/eden": "^1.4.5",
     "@types/react-dom": "^19.2.3",
     "elysia": "latest",
     "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react-dom": "^19.2.1",
+    "ultracite": "6.3.10"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.8",
     "@types/react": "^19.2.7",
     "bun-types": "latest"
   },

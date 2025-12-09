@@ -1,20 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import { rpc } from "#/api";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [data, setData] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  // 在组件加载时获取数据
+  useEffect(() => {
+    rpc.api.message.get().then(({ data, error }) => {
+      if (data) {
+        setData(data as string);
+      }
+      if (error) {
+        setError(String(error));
+      }
+    });
+  }, []);
 
   return (
     <>
       <div>
-        <a href="https://react.dev" target="_blank" rel="noopener">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="https://react.dev" rel="noopener" target="_blank">
+          {/** biome-ignore lint/correctness/useImageSize: <explanation> */}
+          <img alt="React logo" className="logo react" src={reactLogo} />
         </a>
       </div>
-      <h1>Elysia + React SPA</h1>
+      <h1>Elysia + React SPA {data ?? ""}</h1>
+      {!!error && <p>Error: {error}</p>}
       <div className="card">
-        <button type="button" onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count + 1)} type="button">
           count is {count}
         </button>
         <p>
