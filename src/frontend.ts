@@ -7,14 +7,17 @@
 import Elysia from "elysia";
 import indexHtml from "./spa/index.html";
 
+console.log(indexHtml);
+
 const built = !!indexHtml.files;
+const bvfs = indexHtml.index.slice(0, indexHtml.index.lastIndexOf("/"));
 
 function remap(path: string): string {
   let p = path;
   if (p.endsWith("index.html") || p.endsWith(indexHtml.index)) {
     p = "";
-  } else if (p.startsWith("/$bunfs/root/")) {
-    p = p.slice("/$bunfs/root/".length);
+  } else if (p.startsWith(bvfs)) {
+    p = p.slice(bvfs.length);
   }
   return p;
 }

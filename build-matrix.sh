@@ -1,6 +1,6 @@
 #!/bin/bash
 build() {
-  bun build src/index.ts --compile --minify --outfile=dist/server.exe --bytecode $@
+  bun build src/index.ts --compile --minify --outfile=dist/server.exe $@
 }
 
 build --target=bun-linux-x64 --outfile=dist/server-linux-x64.exe
